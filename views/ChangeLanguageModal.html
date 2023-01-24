@@ -1,0 +1,31 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="AppCtrl.closeModalWindow()">&times;</button>
+</div>
+
+<div class="modal-body">
+	<div class="container-fluid">
+		<div class="row">
+			<div>
+				<h4 class="h5-color-graphite-dark">{{::languageConstants.get('OfficialTranslations')}}</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div ng-repeat="supportedLanguage in supportedLanguages | filter: {available:true, officialTranslations : true}" class="col-xs-12 col-sm-4 col-lg-4">
+				<span ng-click="AppCtrl.changeAppLanguage(supportedLanguage.languageCode)" class="h5-language-label btn"
+					ng-class="{'h5-language-label-selected': supportedLanguage.active}"> {{::languageConstants.get(supportedLanguage.languageCode)}}</span>
+			</div>
+		</div>
+		<div class="row">
+			<div>
+				<h4 class="h5-color-graphite-dark">{{::languageConstants.get('AutomaticTranslations')}}</h4>
+			</div>
+			<p class="h5-color-graphite-light h5-text-break-word font-12">{{::languageConstants.get('AutomaticTranslationsHelpText')}}</p>
+		</div>
+		<div class="row">
+			<div ng-repeat="supportedLanguage in supportedLanguages | filter: {available:true, officialTranslations : false}" class="col-xs-12 col-sm-4 col-lg-4">
+				<span ng-click="AppCtrl.changeAppLanguage(supportedLanguage.languageCode)" class="h5-language-label btn"
+					ng-class="{'h5-language-label-selected': supportedLanguage.active}"> {{::languageConstants.get(supportedLanguage.languageCode)}} </span>
+			</div>
+		</div>
+	</div>
+</div>

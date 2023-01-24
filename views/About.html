@@ -1,0 +1,32 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="AppCtrl.closeModalWindow()">&times;</button>
+</div>
+
+<div class="modal-body">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-3">
+			<span><img class="appLogo" ng-src="{{globalConfig.appLogoURL}}" title="{{languageConstants.get(globalConfig.name)}}" alt="LeanSwift"></span>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-9">
+			<table class="inlineTable">
+				<tr>
+					<td><div>
+							<ul class="list-unstyled">
+								<li><span class="h5-color-graphite-dark font-20">{{languageConstants.get(globalConfig.name)}}</span></li>
+								<li><span class="h5-color-graphite-light font-12">{{languageConstants.get('Version') +' '+globalConfig.version}}</span></li>
+							</ul>
+							<ul class="list-unstyled">
+								<li><span class="h5-color-graphite-dark font-14">{{::languageConstants.get('Environment')}}</span> <span class="h5-color-graphite-light font-12">
+										{{globalConfig.environment}}</span></li>
+								<li><span class="h5-color-graphite-dark font-14">{{::languageConstants.get('Language')}}</span> <span class="h5-color-graphite-light font-12">
+										{{languageConstants.get(currentLanguage)}}</span></li>
+							</ul>
+						</div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="h5-color-graphite">Copyright © {{dateRef.getFullYear()}} LeanSwift, Inc. All rights reserved.</div>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="h5.application" ng-controller="AppController as AppCtrl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>{{languageConstants.get(globalConfig.name)}}</title>
+<link rel="shortcut icon" type="image/png" ng-href="{{globalConfig.faviconURL}}" />
+<link href="lib/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<link href="lib/ui-select/select.css" rel="stylesheet" />
+<link href="lib/ui-select/default.css" rel="stylesheet" />
+<link href="lib/ui-grid/ui-grid.css" rel="styleSheet" />
+<link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href="styles/main.css" rel="stylesheet" />
+</head>
+<body ng-keyup="AppCtrl.mapKeyUp($event)" class="{{texture.appBG}}">
+
+	<!-- Loading Screen -->
+	<div ng-hide="appReady" class="ng-cloak">
+		<div class="preLoaderHeader h5-color-graphite">{{languageConstants.get(globalConfig.name)}}</div>
+		<div class="greenPulseCircle">
+			<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+		</div>
+		<nav class="navbar navbar-default navbar-fixed-bottom">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"> <img class="brandLogo" src="img/leanswift-logo-nav.png" title="LeanSwift" alt="LeanSwift">
+					</a>
+				</div>
+				<p class="navbar-text navbar-right">
+					Copyright ©
+					<script>
+						document.write(new Date().getFullYear())
+					</script>
+					LeanSwift, Inc. All rights reserved.
+				</p>
+			</div>
+		</nav>
+	</div>
+	<div ng-include="views.h5Application.url"></div>
+
+	<script src="lib/jquery/jquery.min.js"></script>
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular/angular-animate.min.js"></script>
+	<script src="lib/angular/angular-touch.min.js"></script>
+	<script src="lib/ui-select/sanitize.js"></script>
+	<script src="lib/ui-select/select.js"></script>
+	<script src="lib/ui-select/infinite-scroll.js"></script>
+	<script src="lib/ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="lib/ui-grid/ui-grid.min.js"></script>
+	<script src="lib/pdfmake/pdfmake.min.js"></script>
+	<script src="lib/pdfmake/vfs_fonts.js"></script>
+	<script src="lib/csv-js/csv.js"></script>
+	<script src="lib/odin/odin-m3.js"></script>
+	<script src="lib/odin/d3.min.js"></script>
+	<script src="lib/odin/chart.js"></script>
+	<script src="lib/odin/mashup-chart.js"></script>
+	<script src="scripts/controllers/AppController.js"></script>
+	<script src="scripts/filters/AppFilter.js"></script>
+	<script src="scripts/directives/AppDirective.js"></script>
+	<script src="scripts/services/RestService.js"></script>
+	<script src="scripts/services/OdinMIService.js"></script>
+	<script src="scripts/services/StorageService.js"></script>
+	<script src="scripts/services/AppService.js"></script>
+	<script src="scripts/services/GridService.js"></script>
+	<script src="scripts/services/LanguageService.js"></script>
+	<script src="scripts/services/ConfigService.js"></script>
+	<script src="scripts/app.js"></script>
+</body>
+</html>

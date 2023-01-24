@@ -1,0 +1,44 @@
+{
+	"name": "Product Costing PCS260",
+	"description": "H5ApplicationDesc",
+	"version": "1.0.0.0-Build20220311",
+	"environment": "PRD",
+	"inforIONAPI": {
+		"URL": "<ionapi_pu>",
+	    "grant_type": "password",
+		"username": "<ionapi_saak>",
+		"password": "<ionapi_sask>",
+		"client_id": "<ionapi_ci>",
+		"client_secret": "<ionapi_cs>",
+		"access_token_url": "<ionapi_ot>",
+	    "useSessionOAuth": true,
+	    "sessionOAuthURL":"/grid/rest/security/sessions/oauth"
+	},
+	"inforIDMAPI": {
+		"URL": "https://<HostName>:7443/infor/IDM/api"
+	},
+	"inforM3API": {
+		"URL": "https://<HostName>:7443/infor/M3/M3/m3api-rest/v2/execute",
+		"useIONAPIInsteadOfOdinMI": false,
+		"enableCSRFToken": true
+	},
+	"defaultLanguage": "en-US",
+	"defaultThemeId": "1",
+	"defaultTextureId": "1",
+	"faviconURL": "img/favicon.png",
+	"appLogoURL": "img/leanswift-logo-nav.png",
+	"showThemeSelection": "true",
+	"showWallpaperSelection": "true",
+	"showLanguageSelection": "true",
+	"excludeThemes": [],
+	"excludeWallpapers": [],
+	"excludeLanguages": [],
+	"excludeModules": [],
+	"appConfig": {
+		"searchQuery": {
+			
+		},
+		"enableM3Authority": false,
+		"globalDateFormat": "MM/dd/yy"
+	}
+}

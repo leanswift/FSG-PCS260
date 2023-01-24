@@ -1,0 +1,156 @@
+<div ng-if="appReady" class="ng-cloak">
+
+	<!-- Left Side Nav Pane -->
+	<div id="sideNavView" class="sideNav {{theme.sideNav}}" ng-class="{'sideNav-label': showSideNavLabel}" ng-if="showSideNav">
+		<a href="#" class="appMenu" ng-click="AppCtrl.sideMenuToggler()">☰</a> <div ><a href="#" ng-repeat="module in ::modules | filter: {available:true}"
+			ng-click="AppCtrl.moduleSelected(module.moduleId)" ng-class="{'selected': module.active}"><img class="h5-icon"
+			ng-src="img/{{module.active ? module.activeIcon : module.inactiveIcon}}" title="{{::languageConstants.get(module.heading)}}" alt="" /><span
+			ng-show="showSideNavLabel">{{::languageConstants.get(module.heading)}}</span></a> <a href="#" ng-click="AppCtrl.openChangeThemePage()" class="divider"
+			ng-if="!appConfig.showThemeSelection"><img class="h5-icon" src="img/themes.png" title="{{::languageConstants.get('Themes')}}" alt=""><span
+			ng-show="showSideNavLabel">{{::languageConstants.get('Themes')}}</span></a> <a href="#" ng-click="AppCtrl.openChangeWallpaperPage()" class="divider"
+			ng-if="!appConfig.showWallpaperSelection"><img class="h5-icon" src="img/wallpapers.png" title="{{::languageConstants.get('Wallpapers')}}" alt=""><span
+			ng-show="showSideNavLabel">{{::languageConstants.get('Wallpapers')}}</span></a> <a href="#" ng-click="AppCtrl.openChangeAppLanguagePage()" class="divider"
+			ng-if="!appConfig.showLanguageSelection"><img class="h5-icon" src="img/languages.png" title="{{::languageConstants.get('Languages')}}" alt=""><span
+			ng-show="showSideNavLabel">{{::languageConstants.get('Languages')}}</span></a> <a href="#" ng-click="AppCtrl.openAboutPage()" class="divider"><img
+			class="h5-icon" src="img/about.png" title="{{::languageConstants.get('About')}}" alt=""><span ng-show="showSideNavLabel">{{::languageConstants.get('About')}}</span></a>
+			</div>
+	</div>
+
+	<div id="appView" ng-class="{'appContent': showSideNav,'appContent-label': showSideNavLabel}">
+		<!-- Nav Bar -->
+		<nav class="navbar {{theme.navBar}}">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<span class="navbar-brand"><span ng-if="!showSideNav" ng-click="AppCtrl.sideMenuToggler()">☰ </span>{{languageConstants.get(globalConfig.name)}}</span>
+				</div>
+				<p class="navbar-text" ng-if="userContext.company">{{::userContext.TX40 +' ' + userContext.company +' / '+ userContext.division + ' '
+					+userContext.m3User}}</p>
+			</div>
+		</nav>
+
+		<!-- Selection -->
+		<div ng-include="views.selection.url"></div>
+
+		<!-- Error Message -->
+		<div class="container-fluid">
+			<div class="alert alert-danger" role="alert" ng-if="hasError">
+				<span>{{error}}
+					<button type="button" class="close" ng-click="AppCtrl.hideError()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</span> <span>
+					<ol>
+						<li ng-repeat="errorMessage in ::errorMessages">{{errorMessage}}</li>
+					</ol>
+				</span>
+			</div>
+		</div>
+		<!-- Warning Message -->
+		<div class="container-fluid">
+			<div class="alert alert-warning" role="alert" ng-if="hasWarning">
+				<span>{{warning}}
+					<button type="button" class="close" ng-click="AppCtrl.hideWarning()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</span> <span><ol>
+						<li ng-repeat="warningMessage in ::warningMessages">{{warningMessage}}</li>
+					</ol></span>
+			</div>
+		</div>
+		<!-- Info Message -->
+		<div class="container-fluid">
+			<div class="alert alert-info" role="alert" ng-if="hasInfo">
+				<span>{{info}}
+					<button type="button" class="close" ng-click="AppCtrl.hideInfo()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</span> <span><ol>
+						<li ng-repeat="infoMessage in ::infoMessages">{{infoMessage}}</li>
+					</ol></span>
+			</div>
+		</div>
+		<!-- Loading pulse -->
+		<div class="greenPulse" ng-if="loadingData">
+			<span></span><span></span><span></span><span></span><span></span>
+		</div>
+
+		<!-- Modules -->
+		<div class="container-fluid containerFluidMinHeight">
+			<div ng-switch="activeModule">
+				<div ng-switch-when="1">
+					<div ng-include="modules[0].content"></div>
+				</div>
+				<div ng-switch-when="2">
+					<div ng-include="modules[1].content"></div>
+				</div>
+				<div ng-switch-when="3">
+					<div ng-include="modules[2].content"></div>
+				</div>
+				<div ng-switch-when="4">
+					<div ng-include="modules[3].content"></div>
+				</div>
+				<div ng-switch-when="5">
+					<div ng-include="modules[4].content"></div>
+				</div>
+				<div ng-switch-when="6">
+					<div ng-include="modules[5].content"></div>
+				</div>
+				<div ng-switch-when="7">
+					<div ng-include="modules[6].content"></div>
+				</div>
+				<div ng-switch-when="8">
+					<div ng-include="modules[7].content"></div>
+				</div>
+				<div ng-switch-when="9">
+					<div ng-include="modules[8].content"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Hidden Components -->
+		<textarea id="gridClipboard" class="hiddenTextarea"></textarea>
+
+		<div id='h5-statusbar' class='h5-statusbar table-responsive-custom' uib-collapse='!statusBarVisible' ng-if='statusBar.length > 0'>
+			<table class='table h5-statusbar-header' ng-disabled='statusBar.length==0' ng-click='(statusBar.length > 0) && (statusBarIsCollapsed=!statusBarIsCollapsed)'
+				ng-model='statusBarIsCollapsed'>
+				<tbody>
+					<tr>
+						<td ng-if="statusBarIsCollapsed" class="statusBarHeaderContent font-14"><i
+							ng-class='{"0": "fa fa-info-circle fa-lg h5-color-blue", "1": "fa fa-exclamation-triangle fa-lg h5-color-yellow", "2":"fa fa-minus-circle fa-lg h5-color-red"}[statusBar[statusBar.length-1].statusBarMessageType]'>
+						</i><span class="h5-color-graphite-dark h5-padding-sm-l">{{statusBar[statusBar.length-1].message}}</span></td>
+						<td>
+							<button type='button' ng-disabled='statusBar.length==0' class='close'>
+								<span class='btn-xs glyphicon'
+									ng-class='{"true": "glyphicon-chevron-up", "false": "glyphicon-chevron-down", "undefined":"glyphicon-chevron-down"}[statusBarIsCollapsed]'></span>
+							</button> <span ng-if="!statusBarIsCollapsed">
+								<button ng-click='AppCtrl.closeStatusBar()' class="buttonAsText">
+									<i class="fa fa-trash-o fa-lg h5-padding-sm-r"></i>{{::languageConstants.get('Clear All')}}
+								</button>
+						</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div uib-collapse='statusBarIsCollapsed'>
+				<div class='h5-statusbar-content'>
+					<table class='table'>
+						<tbody>
+							<tr ng-repeat='statusBarItem in statusBar | orderBy:"statusBar.timestamp":true'>
+								<td class="h5-color-graphite"><h5>
+										<span
+											ng-class='{"0": "fa fa-info-circle fa-lg h5-color-blue", "1": "fa fa-exclamation-triangle fa-lg h5-color-yellow", "2":"fa fa-minus-circle fa-lg h5-color-red"}[statusBarItem.statusBarMessageType]'>
+										</span><span class="h5-padding-sm-l">{{statusBarItem.message}}</span>
+									</h5></td>
+								<td class='h5-width-sm'><span class='h5-statusbar-time'>{{statusBarItem.timestamp | date: "HH:mm:ss"}}</span></td>
+								<td class='h5-width-xs'><button type='button' class='close' ng-click='AppCtrl.removeStatusBarItemAt($index)'>
+										<span class='btn-xs glyphicon glyphicon-remove'></span>
+									</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

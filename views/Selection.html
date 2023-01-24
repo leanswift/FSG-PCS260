@@ -1,0 +1,76 @@
+<div id="selectionView" class="container-fluid">
+	<div class="panel {{theme.panel}}">
+		<div class="panel-heading h5-cursor-pointer" ng-model="collapseSel" ng-click="collapseSel=!collapseSel">
+			<img class="h5-icon" ng-src="img/selection-icon.png" title="{{::languageConstants.get('Selection')}}" alt="" />{{::languageConstants.get('Selection Criteria')}}
+		</div>
+		<div class="table-responsive h5-padding-md" ng-if="!collapseSel">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<table class="inlineTable">
+						<tr class="h5-color-graphite">
+							</tr>
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Facility')}}</h5></td>
+							<td>:</td>
+							<td><ui-select class="h5-input-md {{theme.h5Dropdown}}" ng-model="globalSelection.userSelection.facility.selected"
+									theme="bootstrap"> <ui-select-match placeholder="Select Facility" allow-clear=true>{{$select.selected.FACI + ' - '
+								+$select.selected.FACN}}</ui-select-match> <ui-select-choices
+									repeat="facility.FACI as facility in globalSelection.facilityDataList | filter: $select.search track by facility.FACI"> <span
+									ng-bind-html="facility.FACI| highlight: $select.search"></span> - <small ng-bind-html="facility.FACN | highlight: $select.search"></small> </ui-select-choices> </ui-select></td>
+						 </tr>
+						<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('From Date')}}</h5></td>
+								<td>:</td>
+								<td><div class="input-group datepicker h5-input-sm">
+										<input name="fromclockDate" uib-tooltip="{{languageConstants.get('Clock Date')}}" placeholder="Report Date..." type="date" class="form-control"
+											id="fromclockDate" uib-datepicker-popup ng-model="mainScreen.reportDate.fromclockDate" is-open="mainScreen.reportDate.clockDateOpen"
+											close-text="Close" /> <span class="input-group-btn">
+											<button type="button" class="btn btn-default" ng-click="AppCtrl.openDatepicker($event)">
+												<i class="glyphicon glyphicon-calendar"></i>
+											</button>
+										</span>
+									</div></td>
+									<td><h5>{{::languageConstants.get('To Date')}}</h5></td>
+								<td>:</td>
+								<td><div class="input-group datepicker h5-input-sm">
+										<input name="toclockDate" uib-tooltip="{{languageConstants.get('Clock Date')}}" placeholder="Report Date..." type="date" class="form-control"
+											id="tolockDate" uib-datepicker-popup ng-model="mainScreen.reportDate.toclockDate" is-open="mainScreen.reportDate.toclockDateOpen"
+											close-text="Close" /> <span class="input-group-btn">
+											<button type="button" class="btn btn-default" ng-click="AppCtrl.opentoDatepicker($event)">
+												<i class="glyphicon glyphicon-calendar"></i>
+											</button>
+										</span>
+									</div></td>
+							</tr>
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Work Center')}}</h5></td>
+							<td>:</td>
+							<td><input type="text" class="form-control h5-input" ng-model="globalSelection.PLGR"
+								name="Work Center"  style="text-transform: uppercase" size = 20 maxlength = 20></td>
+							<!--  <td><ui-select class="h5-input-md {{theme.h5Dropdown}}" ng-model="globalSelection.locationttypeData" theme="bootstrap"> <ui-select-match
+									placeholder="Select Work Center" allow-clear=true>{{$select.selected.MJWHLT + ' - ' +$select.selected.MJWTNM}}</ui-select-match> <ui-select-choices
+									repeat="location.MJWHLT as location in globalSelection.locationtypeDataList | filter: $select.search track by location.MJWHLT"> <span
+									ng-bind-html="location.MJWHLT | highlight: $select.search"></span> - <small ng-bind-html="location.MJWTNM| highlight: $select.search"></small></ui-select></td>
+						-->
+							</tr>
+						<!--  <tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Availability')}}</h5></td>
+							<td>:</td>
+							<td><input type="text" class="form-control h5-input" ng-model="globalSelection.AVIL"
+								name="Availability"  style="text-transform: uppercase" size = 15 maxlength = 15></td>
+							</tr> -->
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="pager h5-margin-auto">
+						<ul>
+							<li><button class="h5Button {{theme.button}}" ng-click="AppCtrl.loadApplicationData()">{{::languageConstants.get('Find')}}</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

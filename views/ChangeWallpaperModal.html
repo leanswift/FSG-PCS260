@@ -1,0 +1,19 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="AppCtrl.closeModalWindow()">&times;</button>
+	<h4 class="modal-title">{{::languageConstants.get('Wallpapers')}}</h4>
+</div>
+
+<div class="modal-body">
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-lg-3" ng-repeat="texture in ::textures | filter: {available:true}" ng-click="AppCtrl.textureSelected(texture.textureId)">
+			<figure>
+				<img class="h5-theme-image img-responsive img-thumbnail" ng-class="{'h5-theme-image-active':texture.active}" ng-src="img/textures/{{texture.textureIcon}}"
+					title="{{::languageConstants.get(texture.textureName)}}" alt="">
+				<span class="h5-theme-selector" ng-if="texture.active"><img class="" src="img/tick-selection.png" alt=""></span>
+				<figcaption>
+					<p class="font-12">{{::languageConstants.get(texture.textureName)}}</p>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>

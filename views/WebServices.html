@@ -1,0 +1,75 @@
+<div id="webService">
+  <div class="panel {{theme.panel}}">
+  <div class="panel-heading h5-cursor-pointer" ng-model="sampleModule1.collapseSection1"
+    ng-mousedown="sampleModule1.collapseSection1=!sampleModule1.collapseSection1">
+    <img class="h5-icon" ng-src="img/selection-icon.png" title="{{::languageConstants.get('Sample Data List')}}" alt="" />{{::languageConstants.get('Selection')}}
+  </div>
+  <div ng-if="!sampleModule1.collapseSection1">
+    <div class="table-responsive h5-padding-md">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="btn-group">
+           <button class="btn btn-info" ng-click="AppCtrl.loadApplicationData()">Costing (PCS260) </button>
+          </div>
+         <!--<h5>{{::languageConstants.get('Standard Structure Type')}}</h5>
+          <input type="text" class="form-control h5-input" ng-model="webService.STRT"
+								name="Work Center">  --> 
+          <h5>{{::languageConstants.get('Asynchronous')}}</h5><div class="custom-switch">
+            <input id="manualInput" type="checkbox" ng-checked="webService.manualInput" ng-click="webService.manualInput=!webService.manualInput"/> <label for="manualInput" class="label-success"></label>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel {{theme.panel}}" ng-if = "webService.inputItems">
+  <div class="panel-heading h5-cursor-pointer" style="padding: 5px;" ng-model="webService.collapseSection1" ng-mousedown="webService.collapseSection1=!webService.collapseSection1">
+    <img class="h5-icon" ng-src="img/M3APIModule-na.png" title="{{::languageConstants.get('Input Data List')}}" alt="" />{{::languageConstants.get('Input Items')}} {{"(PCS260)"}}
+  </div>
+  <div id="inputDataGrid" ui-grid="webService.inputDataGrid" ng-class="theme.h5Grid" class="h5Grid" ng-if="!webService.collapseSection1" ui-grid-selection
+    ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize ui-grid-cellNav ui-grid-exporter ui-grid-save-state ui-grid-pinning ui-grid-importer
+    ui-grid-edit></div>
+  <div style="clear: both"></div>
+  <div ng-if="!webService.collapseSection1">
+    <div class="table-responsive h5-padding-md">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <table class="inlineTable">
+            <tr class="h5-color-graphite">
+              <td><button class="btn btn-info h5-padding-lg" style="font-size: 15px;" ng-click="AppCtrl.addNewRowInInputDataGrid()">{{::languageConstants.get('Add New Rows')}}</button></td>
+              <td><button class="btn btn-warning h5-padding-lg" style="font-size: 15px;" ng-click="AppCtrl.removeInputDataGridRows()">{{::languageConstants.get('Remove Rows(s)')}}</button></td>
+              <td><button class="btn btn-success h5-padding-lg" style="font-size: 15px;" ng-click="AppCtrl.openConfirmExecuteTransactionsModal()">{{::languageConstants.get('Execute Transactions')}}</button></td>
+            </tr>
+          </table>
+        </div>
+        <!--<div class="col-xs-12 col-sm-12 col-md-12" ng-if="webService.selectedInputDataGridRow.apiResponse">
+          <table class="inlineTable">
+            <tr>
+              <th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Selected WebServices Details')}}</h4></th>
+            </tr>
+            <tr class="h5-color-graphite">
+              <td><h5>{{::languageConstants.get('WebService Response')}}</h5></td>
+              <td>:</td>
+              <td><b>{{webService.errorText}}</td></b>
+            </tr>
+          </table>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="panel {{theme.panel}}" ng-if = "webService.inputItems">
+  <div class="panel-heading h5-cursor-pointer" style="padding: 5px;" ng-model="webService.collapseSection1" ng-mousedown="webService.collapseSection1=!webService.collapseSection1">
+    <img class="h5-icon" ng-src="img/M3APIModule-na.png" title="{{::languageConstants.get('Input Data List')}}" alt="" />{{::languageConstants.get('Error Items')}} {{"(PCS260)"}}
+  </div>
+  <div id="ErrorListGrid" ui-grid="webService.ErrorListGrid" ng-class="theme.h5Grid" class="h5Grid" ng-if="!webService.collapseSection1" ui-grid-selection
+    ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize ui-grid-cellNav ui-grid-exporter ui-grid-save-state ui-grid-pinning
+    ui-grid-edit></div>
+  <div style="clear: both"></div>
+  
+</div>
+</div>

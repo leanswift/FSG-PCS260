@@ -1,0 +1,19 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="AppCtrl.closeModalWindow()">&times;</button>
+	<h4 class="modal-title">{{::languageConstants.get('Execute Transactions')}}</h4>
+</div>
+
+<div class="modal-body">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12"><h5>{{webService.executeConfirmationMessage}}</h5>
+		</div>
+		<div class="row h5-padding-md-t">
+			<div class="pager h5-margin-auto">
+				<ul>
+					<li><button class="h5Button {{theme.button}}" ng-click="AppCtrl.closeModalWindow()">{{::languageConstants.get('Cancel')}}</button></li>
+					<li><button class="h5Button {{theme.button}}" ng-click="AppCtrl.getCSRFToken()">{{::languageConstants.get('Submit')}}</button></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

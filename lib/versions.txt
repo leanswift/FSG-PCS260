@@ -1,0 +1,33 @@
+AngularJS - 1.4.9
+https://angularjs.org/
+
+AngularJS Route - 1.4.9
+https://angularjs.org/
+https://www.nuget.org/packages/AngularJS.Route/
+https://github.com/angular-ui/ui-router
+
+UI Bootstrap - 1.1.1
+http://angular-ui.github.io/bootstrap/
+
+Angular UI Grid - 3.1.0
+http://ui-grid.info/
+https://github.com/angular-ui/ui-grid.info/tree/gh-pages/release
+
+jQuery - 2.2.0
+http://jquery.com/
+https://github.com/jquery/jquery
+
+pdfmake - 0.1.20
+https://github.com/bpampuch/pdfmake/tree/0.1.20
+
+csv-js - 1.1.1
+https://github.com/gkindel/CSV-JS/tree/v1.1.1
+
+Font Awesome - 4.5.0
+https://github.com/FortAwesome/Font-Awesome/tree/v4.5.0
+
+ui-select - 0.11.2
+https://github.com/angular-ui/ui-select/tree/v0.11.2
+
+angular-barcode - v2.0.1
+https://github.com/isonet/angular-barcode/tree/v2.0.1
